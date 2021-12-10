@@ -32,11 +32,11 @@ public class Main {
         changeBossDefence();
         bossHits();
         heroesHit();
+        medic();
         printStatistics();
     }
 
     public static void heroesHit() {
-        Random ramdom1 = new Random();
         for (int i = 0; i < heroesDamage.length; i++) {
             if (heroesHealth[i] > 0 && bossHealth > 0) {
                 if (heroesAttackType[i] == bossDefence) {
@@ -53,18 +53,6 @@ public class Main {
                         bossHealth = 0;
                     } else {
                         bossHealth = bossHealth - heroesDamage[i];
-                    }
-                    if(heroesHealth[1] < 100){
-                        heroesHealth[1] = ramdom1.nextInt(20) + heroesHealth[1];
-                        break;
-                    }
-                    else if(heroesHealth[2] < 100) {
-                        heroesHealth[2] = ramdom1.nextInt(20) + heroesHealth[2];
-                        break;
-                    }
-                    if(heroesHealth[0] < 100) {
-                        heroesHealth[0] = ramdom1.nextInt(20) + heroesHealth[0];
-                        break;
                     }
                 }
             }
@@ -116,6 +104,26 @@ public class Main {
                     + heroesHealth[i] + " (" + heroesDamage[i] + ")");
         }
         System.out.println("_______________");
+    }
+    public static void medic() {
+        for (int i = 0; i < heroesHealth.length; i++) {
+            Random ramdom1 = new Random();
+            if(heroesHealth[1] < 100){
+                heroesHealth[1] = ramdom1.nextInt(20) + heroesHealth[1];
+                break;
+            }
+            else if(heroesHealth[2] < 100) {
+                heroesHealth[2] = ramdom1.nextInt(20) + heroesHealth[2];
+                break;
+            }
+            else if(heroesHealth[0] < 100) {
+                heroesHealth[0] = ramdom1.nextInt(20) + heroesHealth[0];
+                break;
+            }
+            else if (heroesHealth[i] < 0) {
+                boolean random1 = false;
+            }
+        }
     }
 }
 
