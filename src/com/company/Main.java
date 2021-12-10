@@ -8,7 +8,7 @@ public class Main {
     public static int bossDamage = 50;
     public static String bossDefence = "";
 
-    public static int[] heroesHealth = {270, 260, 250, 300};
+    public static int[] heroesHealth = {270, 260, 250, 1000};
     public static int[] heroesDamage = {15, 20, 25, 0};
     public static String[] heroesAttackType = {"Physical", "Magical", "Kinetic", "Medic"};
     public static int round_number = 0;
@@ -54,13 +54,18 @@ public class Main {
                     } else {
                         bossHealth = bossHealth - heroesDamage[i];
                     }
-                    if(heroesHealth[i] < 100){
-                        heroesHealth[i] = ramdom1.nextInt(20) + heroesHealth[i];
+                    if(heroesHealth[1] < 100){
+                        heroesHealth[1] = ramdom1.nextInt(20) + heroesHealth[1];
+                        break;
                     }
-                    else if (heroesHealth[3] < 100){
-                        heroesHealth[3] = heroesHealth[3];
+                    else if(heroesHealth[2] < 100) {
+                        heroesHealth[2] = ramdom1.nextInt(20) + heroesHealth[2];
+                        break;
                     }
-
+                    if(heroesHealth[0] < 100) {
+                        heroesHealth[0] = ramdom1.nextInt(20) + heroesHealth[0];
+                        break;
+                    }
                 }
             }
         }
